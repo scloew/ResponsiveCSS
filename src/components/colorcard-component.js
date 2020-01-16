@@ -8,8 +8,8 @@ export default class ColorCard extends Component {
     super(props)
 
     this.state = {
-      color: this.props.color,
       text: this.props.text,
+      color: this.props.color,
       colorPlaceholder: '',
       textPlaceholder: ''
     }
@@ -33,9 +33,8 @@ export default class ColorCard extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-
-    const newColor = this.state.colorPlaceholder;
-    const newText = this.state.textPlaceholder;
+    const newColor = this.state.colorPlaceholder ? this.state.colorPlaceholder : this.state.color;
+    const newText = this.state.textPlaceholder ? this.state.textPlaceholder : this.text; //TODO why isn't this working?
     this.setState({
       text: newText,
       color: newColor,
