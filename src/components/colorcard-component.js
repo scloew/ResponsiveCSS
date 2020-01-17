@@ -34,7 +34,7 @@ export default class ColorCard extends Component {
   onSubmit(e) {
     e.preventDefault();
     const newColor = this.state.colorPlaceholder ? this.state.colorPlaceholder : this.state.color;
-    const newText = this.state.textPlaceholder ? this.state.textPlaceholder : this.text; //TODO why isn't this working?
+    const newText = this.state.textPlaceholder ? this.state.textPlaceholder : this.state.text;
     this.setState({
       text: newText,
       color: newColor,
