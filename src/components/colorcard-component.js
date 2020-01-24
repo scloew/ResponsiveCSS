@@ -50,7 +50,7 @@ export default class ColorCard extends Component {
       padding: 20,
       backgroundColor: 'black',
       boxShadow: '0px 0px 5px #666',
-      display: "inline-block",
+      display: 'inline-block',
       textAlign: "center",
       color: 'white',
       fontSize: 'medium'
