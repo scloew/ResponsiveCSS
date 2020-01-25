@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 export default class Square extends Component {
   render() {
-
+    const toHex = require('colornames');
+    var colorHex = this.props.color.includes('#') ? this.props.color.replace('#', '') : toHex(this.props.color);
     const IsColorDark = hexcolor => {
       hexcolor = hexcolor.replace("#", "");
       var r = parseInt(hexcolor.substr(0, 2), 16);
@@ -17,7 +18,7 @@ export default class Square extends Component {
       textAlign: 'center',
       fontFamily: "monospace",
       fontSize: 15,
-      color: IsColorDark(this.props.color) ? 'black' : 'white',
+      color: IsColorDark(colorHex) ? 'black' : 'white',
       fontWeight: 'bold'
     };
     return (
