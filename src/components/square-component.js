@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+const toHex = require('colornames');
 
 export default class Square extends Component {
   render() {
-    const toHex = require('colornames');
     var colorHex = this.props.color.includes('#') ? this.props.color.replace('#', '') : toHex(this.props.color);
     const IsColorDark = hexcolor => {
+      if (hexcolor === undefined) {
+        return (this.props.color === 'black');
+      }
       hexcolor = hexcolor.replace("#", "");
       var r = parseInt(hexcolor.substr(0, 2), 16);
       var g = parseInt(hexcolor.substr(2, 2), 16);
