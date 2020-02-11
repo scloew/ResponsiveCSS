@@ -41,6 +41,12 @@ export default class ColorCard extends Component {
       textPlaceholder: '',
       colorPlaceholder: ''
     })
+
+    this.state.colorPlaceholder && !this.state.textPlaceholder ? this._colorInput.focus() : this._textInput.focus();
+    this._textInput.value = '';
+    this._colorInput.value = '';
+
+    e.preventDefault();
   }
 
   render() {
@@ -67,18 +73,28 @@ export default class ColorCard extends Component {
               <input type="text"
                 className="form-control"
                 value={this.state.textPlaceholder}
-                onChange={this.onChangeText}
                 placeholder={this.state.text}
+                onChange={this.onChangeText}
+                ref={
+                  el => {
+                    this._textInput = el;
+                  }
+                }
               />
               <input type="text"
                 className="form-control"
                 value={this.state.colorPlaceholder}
-                onChange={this.onChangeColor}
                 placeholder={this.state.color}
+                onChange={this.onChangeColor}
+                ref={
+                  el => {
+                    this._colorInput = el;
+                  }
+                }
               />
             </div>
             <div className="form-group">
-              <input type="submit" value="change color" className="btn btn-primary" />
+              <input type="submit" value="change text/color" className="btn btn-primary" />
             </div>
           </form>
         </div>
